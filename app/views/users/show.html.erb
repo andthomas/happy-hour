@@ -1,9 +1,13 @@
-<h1>Users Index</h1>
+<h2>User Details</h2>
 
-<p>Create User</p>
-
-<% @users.each do |u| %>
-
-<p><%= u.name %></p>
-
+<% if @current_user == @user %>
+  <%= link_to 'Edit profile', edit_user_path(@user) %>
 <% end %>
+
+<%= link_to_if @current_user == @user, 'Edit Profile', edit_user_path(@user) %>
+
+<p>Email: <%= @user.email %> </p>
+
+<p>Name: <%= @user.name %> </p>
+
+<img src="<%= @user.image %>" alt="">

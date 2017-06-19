@@ -1,13 +1,12 @@
-<h1>Venues Index</h1>
+<h1>Venue Details</h1>
 
-<% @venues.each do |v| %>
+<%= link_to 'All Venues', venues_path %>
 
-<p><%= v.name %></p>
-<p><%= v.location %></p>
-<p><%= v.category %></p>
-<p><%= v.description %></p>
-<img src="<%= v.image %>" alt="">
-<p><%= v.user_id %></p>
+<p><%= @venue.name %></p>
+<p><%= @venue.category %></p>
+<p>Address: <%= @venue.location %></p>
+<p><%= @venue.description %></p>
+<img src="<%= @venue.image %>" alt="">
 <br><br><br>
 
-<% end %>
+<%= link_to 'Edit Venue', edit_venue_path %>

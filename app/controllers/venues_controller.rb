@@ -9,20 +9,27 @@ class VenuesController < ApplicationController
   end
 
   def edit
+    @venue = Venue.find params["id"]
   end
 
   def update
+    venue = Venue.find params["id"]
+    venue.update venue_params
+    redirect_to venue_path( params["id"] )
   end
 
   def show
-    @venues = Venue.all
+     @venue = Venue.find params["id"]
+
   end
 
   def index
-
+    @venues = Venue.all
+    # raise 'hell'
   end
 
   def destroy
+    @venue = Venue.find params["id"]
   end
 
   private
