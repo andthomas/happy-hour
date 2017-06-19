@@ -1,2 +1,13 @@
-<h1>Venues#show</h1>
-<p>Find me in app/views/venues/show.html.erb</p>
+<h1>Venues Index</h1>
+
+<% @venues.each do |v| %>
+
+<p><%= v.name %></p>
+<p><%= v.location %></p>
+<p><%= v.category %></p>
+<p><%= v.description %></p>
+<img src="<%= v.image %>" alt="">
+<p><%= v.user_id %></p>
+<br><br><br>
+
+<% end %>

@@ -1,2 +1,31 @@
-<h1>Venues#new</h1>
-<p>Find me in app/views/venues/new.html.erb</p>
+<h1>Create a new venue</h1>
+
+<%= form_for @venue do |f| %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+
+  <p>
+    <%= f.label :location %>
+    <%= f.text_field :location, required: true %>
+  </p>
+
+  <p>
+    <%= f.label :category %>
+    <%= f.text_field :category, required: true %>
+  </p>
+
+  <p>
+    <%= f.label :description %>
+    <%= f.text_field :description, required: true %>
+  </p>
+
+  <p>
+    <%= f.label :image %>
+    <%= f.text_field :image, required: true %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>

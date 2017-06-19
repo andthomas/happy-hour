@@ -10,8 +10,10 @@
 #  image       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer
 #
 
 class Venue < ApplicationRecord
   belongs_to :user, optional: true
+  has_many :happyhours
 end
