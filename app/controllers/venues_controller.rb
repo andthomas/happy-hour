@@ -1,11 +1,24 @@
 class VenuesController < ApplicationController
+
+  before_action :fetch_user
+
   def new
     @venue = Venue.new
   end
 
   def create
-    @venue = Venue.create venue_params
-    redirect_to venue_path(@venue.id)
+    @venue = Venue.new venue_params
+
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload params[:file]
+      @venue.image = req['public_id']
+    end
+
+    :user == @current_user
+
+    @venue.save
+
+    redirect_to user_path( @current_user )
   end
 
   def edit
@@ -20,7 +33,6 @@ class VenuesController < ApplicationController
 
   def show
      @venue = Venue.find params["id"]
-
   end
 
   def index
@@ -36,6 +48,13 @@ class VenuesController < ApplicationController
   def venue_params
     params.require(:venue).permit(:name, :location, :category, :description, :image)
   end
+
+  def fetch_user
+     @current_user = User.find_by :id => session[:user_id] if
+     session[:user_id].present?
+
+    session[:user_id] = nil unless @current_user.present?
+   end
 
 
 end

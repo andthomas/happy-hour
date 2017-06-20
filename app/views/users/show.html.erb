@@ -3,3 +3,12 @@
 <p>Email: <%= @user.email %> </p>
 
 <p>Name: <%= @user.name %> </p>
+
+<p>Venues:
+
+<% @user.venues.each do |v| %>
+<br><%= link_to v.name, venue_path(v.id) %><br>
+<% end %>
+</p>
+
+<%= link_to 'Create Venue', new_venue_path %>

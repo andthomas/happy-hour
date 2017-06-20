@@ -15,6 +15,7 @@ nav {
 }
 
 #logoContainer {
+  text-decoration: none;
   font-family: 'Satisfy', cursive;
   font-size: 50px;
   display: inline;

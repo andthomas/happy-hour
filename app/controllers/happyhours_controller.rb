@@ -5,7 +5,7 @@ class HappyhoursController < ApplicationController
 
   def create
     @happy = Happyhour.create happyhour_params
-    redirect_to happyhour_path(@happy.id)
+    redirect_to happyhour_path(@happy.venue_id)
   end
 
   def edit
@@ -15,7 +15,7 @@ class HappyhoursController < ApplicationController
   def update
     happy = Happyhour.find params["id"]
     happy.update happyhour_params
-    redirect_to happyhour_path( params["id"] )
+    redirect_to venue_path( happy.venue_id )
   end
 
   def show

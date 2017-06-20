@@ -1,12 +1,14 @@
-<h1>Venue Details</h1>
+<h1><%= @venue.name %></h1><%= link_to 'Edit Venue', edit_venue_path(@venue.id) %><br>
 
-<%= link_to 'All Venues', venues_path %>
-
-<p><%= @venue.name %></p>
 <p><%= @venue.category %></p>
 <p>Address: <%= @venue.location %></p>
 <p><%= @venue.description %></p>
-<img src="<%= @venue.image %>" alt="">
-<br><br><br>
 
-<%= link_to 'Edit Venue', edit_venue_path %>
+
+<ul>
+<% @venue.happyhours.each do |hh| %>
+  <li> <%= hh.start.to_time_of_day.strftime("%I:%M%p")  %> to  <%= hh.end.to_time_of_day.strftime("%I:%M %p") %> <%= link_to 'Edit', edit_happyhour_path(hh.id) %></li>
+<% end %>
+</ul>
+<%= link_to 'Add Happy Hour', new_happyhour_path(@venue.id) %><br><br>
+<%= cl_image_tag @venue.image %>

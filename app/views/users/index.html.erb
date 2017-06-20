@@ -1,11 +1,9 @@
-<h1>Users Index</h1>
+<h2>Users Index</h2>
 
-<p>Create User</p>
-
-<p>Look at all these fancy words</p>
-
-<% @users.each do |u| %>
-
-<p><%= u.name %></p>
-
-<% end %>
+<ul>
+  <% User.all.each do |u| %>
+    <li>
+      <%= link_to u.name, user_path(u.id) %>
+    </li>
+  <% end %>
+</ul>

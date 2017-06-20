@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-u1 = User.create name: "Paul Vincent", dob: "1988-02-22", email: "paul@vincent.com", password_digest: "chicken"
-u2 = User.create name: "Sam Station", dob: "1958-02-12", email: "sam@station.com", password_digest: "chicken"
-u3 = User.create name: "Stevie Knicks", dob: "1938-09-22", email: "stevie@knicks.com", password_digest: "chicken"
+u1 = User.create name: "Paul Vincent", dob: "1988-02-22", email: "paul@vincent.com", password: "chicken"
+u2 = User.create name: "Sam Station", dob: "1958-02-12", email: "sam@station.com", password: "chicken"
+u3 = User.create name: "Stevie Knicks", dob: "1938-09-22", email: "stevie@knicks.com", password: "chicken"
 
 
 Venue.destroy_all
@@ -20,9 +20,10 @@ v4 = Venue.create name: "Hand Bar", location: "3 Old St, Glebe", category: "Bar"
 
 
 Happyhour.destroy_all
-h1 = Happyhour.create start: Time.new(2017,6,19,17,10,0, "+09:00"), end: Time.new(2017,6,19,18,10,0, "+09:00")
-h2 = Happyhour.create start: Time.new(2017,6,20,17,10,0, "+09:00"), end: Time.new(2017,6,20,18,10,0, "+09:00")
-h3 = Happyhour.create start: Time.new(2017,6,21,17,10,0, "+09:00"), end: Time.new(2017,06,21,18,10,0, "+09:00")
+h1 = Happyhour.create start: Time.new(2017,6,19,17,10,0), end: Time.new(2017,6,19,18,10,0)
+h2 = Happyhour.create start: Time.new(2017,6,20,17,10,0), end: Time.new(2017,6,20,18,10,0)
+h3 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0)
+h4 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0)
 
 
 Deal.destroy_all
@@ -37,10 +38,10 @@ u3.venues << v4
 
 
 
-v1.happyhours << h1 << h3
-v2.happyhours << h2 << h3
-v3.happyhours << h1 << h2 << h3
-v4.happyhours << h1
+v1.happyhours << h1
+v2.happyhours << h2
+v3.happyhours << h3
+v4.happyhours << h4
 
 
 
