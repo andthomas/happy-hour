@@ -1,0 +1,15 @@
+<%= form_for @happy do |f| %>
+
+  <p>
+    <%= f.label :start %>
+    <%= f.time_field :start, required: true %>
+  </p>
+
+  <p>
+    <%= f.label :end %>
+    <%= f.time_field :end, required: true %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>

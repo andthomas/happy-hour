@@ -1,2 +1,9 @@
-<h1>Happyhours#show</h1>
-<p>Find me in app/views/happyhours/show.html.erb</p>
+<h1>Happy Hour Details</h1>
+
+<%= link_to 'All Venues', venues_path %>
+
+<p><%= @happy.start %></p>
+<p><%= @happy.end %></p>
+<br><br><br>
+
+<%= link_to 'Edit Happy Hour', edit_happyhour_path %>

@@ -4,17 +4,22 @@ class HappyhoursController < ApplicationController
   end
 
   def create
-    @venue = Venue.create venue_params
-    redirect_to venue_path(@venue.id)
+    @happy = Happyhour.create happyhour_params
+    redirect_to happyhour_path(@happy.id)
   end
 
   def edit
+     @happy = Happyhour.find params["id"]
   end
 
   def update
+    happy = Happyhour.find params["id"]
+    happy.update happyhour_params
+    redirect_to happyhour_path( params["id"] )
   end
 
   def show
+     @happy = Happyhour.find params["id"]
   end
 
   def index
@@ -24,8 +29,8 @@ class HappyhoursController < ApplicationController
   end
 
   private
-  def venue_params
-    params.require(:venue).permit(:name, :location, :category, :description, :image)
+  def happyhour_params
+    params.require(:happyhour).permit(:start, :end, :venue_id, :deal_id)
   end
 
 end

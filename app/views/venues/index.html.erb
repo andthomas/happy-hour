@@ -1,13 +1,13 @@
-<h1>Venues Index</h1>
+<div id="listContainer">
 
-<% @venues.each do |v| %>
-
-  <h3><%= link_to v.name, venue_path(v.id) %></h3>
-  <p><%= v.category %></p>
-  <p><%= v.location %></p>
-  <p><%= v.description %></p>
-
-  <img src="<%= v.image %>" alt="">
-  <br><br>
-
-<% end %>
+  <% @venues.each do |v| %>
+    <div class="venueBox">
+        <h3 class="venueContents"><%= link_to v.name, venue_path(v.id) %></h3>
+        <p class="venueContents"><%= v.category %></p>
+        <p class="venueContents"><%= v.location %></p>
+        <p class="venueContents"><%= v.description %></p>
+      <img class="venuePic" src="<%= v.image %>" alt=""></img>
+    </div>
+    <br><br>
+  <% end %>
+</div>
