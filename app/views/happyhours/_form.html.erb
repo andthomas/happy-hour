@@ -1,5 +1,10 @@
 <%= form_for @happy do |f| %>
 
+<p>
+  <%= f.label :day %>
+  <%= f.text_field :day, required: true %>
+</p>
+
   <p>
     <%= f.label :start %>
     <%= f.time_field :start, required: true %>
@@ -9,6 +14,11 @@
     <%= f.label :end %>
     <%= f.time_field :end, required: true %>
   </p>
+
+
+  <%= f.hidden_field :venue_id, :value => params[:venue_id] %>
+
+
 
   <%= f.submit %>
 

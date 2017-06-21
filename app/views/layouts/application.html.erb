@@ -9,23 +9,38 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="/assets/application.css">
-    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Raleway" rel="stylesheet">
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   </head>
 
 <nav style="float:right">
-  <% unless @current_user.present? %>
+  <p><% unless @current_user.present? %>
     <%= link_to 'Login', login_path %> | <%= link_to 'Signup', new_user_path %>
   <% else %>
   Welcome, <%= link_to @current_user.name, user_path(@current_user) %> |
     <%= link_to 'Logout', login_path, method: :delete %>
-  <% end %>
+  <% end %></p>
 </nav>
 
   <body>
 
   <div id="head">
-    <div id="logoContainer"><%= link_to 'happy hour', venues_path %></div>
+    <div class="logoContainer"><%= link_to 'happy hour', venues_path %></div>
   </div>
 
     <%= yield %>

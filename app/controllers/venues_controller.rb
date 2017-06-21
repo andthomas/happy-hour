@@ -7,7 +7,8 @@ class VenuesController < ApplicationController
   end
 
   def create
-    @venue = Venue.new venue_params
+
+    @venue = @current_user.venues.new venue_params
 
     if params[:file].present?
       req = Cloudinary::Uploader.upload params[:file]
@@ -38,6 +39,10 @@ class VenuesController < ApplicationController
   def index
     @venues = Venue.all
     # raise 'hell'
+  end
+
+  def map
+    @venues = Venue.all
   end
 
   def destroy

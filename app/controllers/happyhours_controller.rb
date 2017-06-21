@@ -1,11 +1,12 @@
 class HappyhoursController < ApplicationController
   def new
     @happy = Happyhour.new
+
   end
 
   def create
     @happy = Happyhour.create happyhour_params
-    redirect_to happyhour_path(@happy.venue_id)
+    redirect_to venue_path(@happy.venue.id)
   end
 
   def edit
@@ -30,7 +31,7 @@ class HappyhoursController < ApplicationController
 
   private
   def happyhour_params
-    params.require(:happyhour).permit(:start, :end, :venue_id, :deal_id)
+    params.require(:happyhour).permit(:start, :end, :venue_id, :deal_id, :day)
   end
 
 end

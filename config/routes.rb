@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  root to: "venues#index"
+  root to: "venues#map"
 
   get    '/login' => 'session#new'
   post   '/login' => 'session#create'
-  delete '/login' => 'session#destroy'   
+  delete '/login' => 'session#destroy'
+
+  get '/venues/map' => 'venues#map'
 
   resources :users
 

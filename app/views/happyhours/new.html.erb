@@ -1,3 +1,26 @@
 <h1>Create a new happy hour</h1>
+<%= form_for @happy do |f| %>
 
-<%= render partial: 'form' %>
+<p>
+  <%= f.label :day %>
+  <%= f.text_field :day, required: true %>
+</p>
+
+  <p>
+    <%= f.label :start %>
+    <%= f.time_field :start, required: true %>
+  </p>
+
+  <p>
+    <%= f.label :end %>
+    <%= f.time_field :end, required: true %>
+  </p>
+
+
+  <%= f.hidden_field :venue_id, :value => params[:venue_id] %>
+
+
+
+  <%= f.submit %>
+
+<% end %>

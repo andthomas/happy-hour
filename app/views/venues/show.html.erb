@@ -1,14 +1,68 @@
-<h1><%= @venue.name %></h1><%= link_to 'Edit Venue', edit_venue_path(@venue.id) %><br>
 
-<p><%= @venue.category %></p>
-<p>Address: <%= @venue.location %></p>
-<p><%= @venue.description %></p>
+<div id="contentContainer">
+
+  <h1><%= @venue.name %></h1>
+
+  <% if @current_user != nil %>
+    <% if @current_user.id == @venue.user_id %>
+      <p><%= link_to 'Edit Venue', edit_venue_path(@venue.id) %></p>
+    <% end %>
+  <% end %>
+
+  <p><%= @venue.category %> | <%= @venue.location %></p>
+  <p><%= @venue.description %></p>
+
+  <table>
+  <tr>
+    <th>Day</th>
+    <th>Deal</th>
+  </tr>
+  <% @venue.happyhours.each do |hh| %>
+  <tr>
+    <td>
+      <%= hh.day  %><br><%= hh.start.to_time_of_day.strftime("%I:%M %p")  %> to  <%= hh.end.to_time_of_day.strftime("%I:%M %p") %>
+
+      <% if @current_user != nil %>
+        <% if @current_user.id == @venue.user_id %>
+          <%= link_to 'Edit', edit_happyhour_path(hh.id) %></p>
+          <%= link_to 'Add Deal', new_deal_path(happyhour_id:) %>
+        <% end %>
+      <% end %>
+    </td>
+
+    <td>
+      <% hh.deals.each do |d| %>
+
+        <%= d.drink %> $<%= d.price %><br><%= d.description %>
+
+          <% if @current_user != nil %>
+            <% if @current_user.id == @venue.user_id %>
+              <%= link_to 'Edit', edit_deal_path(d.id) %> |
+            <% end %>
+          <% end %>
+
+          <% if @current_user != nil %>
+            <% if @current_user.id == @venue.user_id %>
+              <%= link_to 'Delete', edit_deal_path(d.id) %>
+            <% end %>
+          <% end %><br><br>
+
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+  </table>
 
 
-<ul>
-<% @venue.happyhours.each do |hh| %>
-  <li> <%= hh.start.to_time_of_day.strftime("%I:%M%p")  %> to  <%= hh.end.to_time_of_day.strftime("%I:%M %p") %> <%= link_to 'Edit', edit_happyhour_path(hh.id) %></li>
-<% end %>
-</ul>
-<%= link_to 'Add Happy Hour', new_happyhour_path(@venue.id) %><br><br>
-<%= cl_image_tag @venue.image %>
+
+  <br>
+
+    <% if @current_user != nil %>
+      <% if @current_user.id == @venue.user_id %>
+        <p><%= link_to 'Add Happy Hour', new_happyhour_path(venue_id: @venue.id)  %></p>
+      <% end %>
+    <% end %>
+
+  <%= cl_image_tag @venue.image %>
+
+</div>

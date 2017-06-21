@@ -1,0 +1,2 @@
+class AddDayToHappyhour < ApplicationRecord
+end
