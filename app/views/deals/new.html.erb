@@ -1,2 +1,23 @@
-<h1>Deals#new</h1>
-<p>Find me in app/views/deals/new.html.erb</p>
+<h1>New Deal</h1>
+<%= form_for @deal do |f| %>
+
+<p>
+  <%= f.label :drink %>
+  <%= f.text_field :drink, required: true %>
+</p>
+
+  <p>
+    <%= f.label :price %>
+    <%= f.number_field :price, required: true %>
+  </p>
+
+  <p>
+    <%= f.label :description %>
+    <%= f.text_field :description, required: true %>
+  </p>
+
+  <%= f.hidden_field :happyhour_id, :value => params[:happyhour_id] %>
+
+  <%= f.submit %>
+
+<% end %>

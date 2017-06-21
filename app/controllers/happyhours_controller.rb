@@ -24,6 +24,7 @@ class HappyhoursController < ApplicationController
   end
 
   def index
+    @happy = Happyhour.all
   end
 
   def destroy

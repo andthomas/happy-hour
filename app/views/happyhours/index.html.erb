@@ -1,2 +1,32 @@
-<h1>Happyhours#index</h1>
-<p>Find me in app/views/happyhours/index.html.erb</p>
+<div class="container">
+
+  <% current_day = Time.now.wday %>
+  <% if current_day == 1 %>
+    <% today = "Monday" %>
+  <% elsif current_day == 2 %>
+    <% today = "Tuesday" %>
+  <% elsif current_day == 3 %>
+    <% today = "Wednesday" %>
+  <% elsif current_day == 4 %>
+    <% today = "Thursday" %>
+  <% elsif current_day == 5 %>
+    <% today = "Friday" %>
+  <% elsif current_day == 6 %>
+    <% today = "Saturday" %>
+  <% elsif current_day == 7 %>
+    <% today = "Sunday" %>
+  <% end %>
+
+    <% @happy.each do |h| %>
+      <% if current_day == h.day %>
+      <div class="col-xs-12">
+        <div class="timeBox">
+          <%= h.day %> <%= h.start %> <%= h.end %>
+        </div>
+        <br><br>
+      </div>
+      <% end %>
+    <% end %>
+
+</div>
+<% raise 'hell'%>

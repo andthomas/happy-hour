@@ -5,7 +5,16 @@ class DealsController < ApplicationController
 
   def create
     @deal = Deal.create deal_params
-    redirect_to deal_path(@deal.venue_id)
+    @happy = Happyhour.find( @deal.happyhour_id )
+
+    # happyhour = Happyhour.where id: params[:deal][:happyhour_ids]
+    # @deal.happyhours << happyhour
+
+    deal = Deal.where id: params[:happyhour][:deal_ids]
+    @happy.deals << deal
+
+    redirect_to venue_path( @happy.venue.id )
+
   end
 
   def edit
@@ -14,8 +23,9 @@ class DealsController < ApplicationController
 
   def update
     deal = Deal.find params["id"]
+    happy = Happyhour.find( deal.happyhour_id )
     deal.update deal_params
-    # redirect_to venue_path( deal.happyhour.venue_id )
+    redirect_to venue_path( happy.venue.id )
   end
 
   def show

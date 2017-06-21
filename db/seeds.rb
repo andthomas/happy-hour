@@ -27,9 +27,9 @@ v9 = Venue.create name: "Another Bar", location: "3 Old St, Glebe", category: "B
 
 
 Happyhour.destroy_all
-h1 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Monday"
-h2 = Happyhour.create start: Time.new(2017,6,20,17,10,0), end: Time.new(2017,6,20,18,10,0), day: "Wednesday"
-h3 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0), day: "Friday"
+h1 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Saturday"
+h2 = Happyhour.create start: Time.new(2017,6,20,17,10,0), end: Time.new(2017,6,20,18,10,0), day: "Sunday"
+h3 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0), day: "Leapday"
 h4 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0), day: "Monday"
 h5 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Tuesday"
 h6 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Wednesday"
@@ -69,8 +69,3 @@ h5.deals << d1
 h6.deals << d1
 h7.deals << d1
 h8.deals << d1
-
-
-d1.happyhours << h1
-d2.happyhours << h2
-d3.happyhours << h3

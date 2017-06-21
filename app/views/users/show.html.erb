@@ -1,14 +1,21 @@
-<h2>User Details</h2>
+<div class="container">
 
-<p>Email: <%= @user.email %> </p>
+  <h2><%= @user.name %></h2>
 
-<p>Name: <%= @user.name %> </p>
+  <%= link_to 'Create new venue', new_venue_path %><br><br>
 
-<p>Venues:
+  <p>My Venues:</p>
 
-<% @user.venues.each do |v| %>
-<br><%= link_to v.name, venue_path(v.id) %><br>
-<% end %>
-</p>
+    <% @user.venues.each do |v| %>
+    <div class="col-xs-4">
+      <div class="venueBox">
+        <img class="venuePic" src="<%= v.image %>" alt=""></img>
+        <div class="venueContents">
+          <p><%= link_to v.name, venue_path(v.id) %> | <%= v.category %></p>
+        </div>
+      </div>
+      <br><br>
+        </div>
+    <% end %>
 
-<%= link_to 'Create Venue', new_venue_path %>
+</div>

@@ -1,26 +1,21 @@
 <h1>Edit Deal</h1>
 
-<%= form_for @happy do |f| %>
-
-<p>
-  <%= f.label :day %>
-  <%= f.text_field :day, required: true %>
-</p>
+<%= form_for @deal do |f| %>
 
   <p>
-    <%= f.label :start %>
-    <%= f.time_field :start, required: true %>
+    <%= f.label :drink %>
+    <%= f.text_field :drink, required: true %>
   </p>
 
   <p>
-    <%= f.label :end %>
-    <%= f.time_field :end, required: true %>
+    <%= f.label :price %>
+    <%= f.number_field :price, required: true %>
   </p>
 
-
-  <%= f.hidden_field :venue_id, :value => params[:venue_id] %>
-
-
+  <p>
+    <%= f.label :description %>
+    <%= f.text_field :description, required: true %>
+  </p>
 
   <%= f.submit %>
 
