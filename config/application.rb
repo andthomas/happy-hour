@@ -16,7 +16,6 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-require 'tod/core_extensions'
 
 module HappyHourApp
   class Application < Rails::Application
