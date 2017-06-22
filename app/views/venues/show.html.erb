@@ -20,7 +20,7 @@
   <% @venue.happyhours.each do |hh| %>
   <tr>
     <td>
-      <%= hh.day  %><br><%= hh.start.to_time_of_day.strftime("%I:%M %p")  %> to  <%= hh.end.to_time_of_day.strftime("%I:%M %p") %>
+      <%= hh.day  %><br><%= hh.start.strftime("%I:%M %p")  %> to  <%= hh.end.strftime("%I:%M %p") %>
 
       <% if @current_user != nil %>
         <% if @current_user.id == @venue.user_id %>
