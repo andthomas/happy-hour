@@ -20,3 +20,7 @@
   <%= f.submit %>
 
 <% end %>
+
+
+
+<%= link_to 'Delete', @deal, method: :delete, :data => {:confirm => "Are you sure?"} %>

@@ -1,3 +1,6 @@
 <h1>Update Venue Details</h1>
 
 <%= render partial: 'form' %>
+
+
+<%= link_to 'Delete', @venue, method: :delete, :data => {:confirm => "Are you sure?"} %>

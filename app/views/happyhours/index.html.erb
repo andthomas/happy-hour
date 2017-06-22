@@ -2,31 +2,61 @@
 
   <% current_day = Time.now.wday %>
   <% if current_day == 1 %>
-    <% today = "Monday" %>
+    <% @today = "Monday" %>
   <% elsif current_day == 2 %>
-    <% today = "Tuesday" %>
+    <% @today = "Tuesday" %>
   <% elsif current_day == 3 %>
-    <% today = "Wednesday" %>
+    <% @today = "Wednesday" %>
   <% elsif current_day == 4 %>
-    <% today = "Thursday" %>
+    <% @today = "Thursday" %>
   <% elsif current_day == 5 %>
-    <% today = "Friday" %>
+    <% @today = "Friday" %>
   <% elsif current_day == 6 %>
-    <% today = "Saturday" %>
+    <% @today = "Saturday" %>
   <% elsif current_day == 7 %>
-    <% today = "Sunday" %>
+    <% @today = "Sunday" %>
   <% end %>
 
-    <% @happy.each do |h| %>
-      <% if current_day == h.day %>
-      <div class="col-xs-12">
-        <div class="timeBox">
-          <%= h.day %> <%= h.start %> <%= h.end %>
-        </div>
-        <br><br>
-      </div>
-      <% end %>
-    <% end %>
+  map using hash
 
+  use active record to get hhours of correct day
+
+  fat controllers
+
+  start after time now
+
+  <h2 style="padding-bottom: 20px;"><%=@today%>'s Happy Hours</h2>
+
+    <% @happy.each do |h| %>
+      <% if @today == h.day %>
+      <div class="timeContainer">
+        <div class="timeBox">
+
+          <% @venue.each do |v| %>
+            <% if v.id == h.venue_id %>
+              <%= v.name %>
+            <% end %>
+          <% end %>
+
+          <%= h.start.to_time_of_day.strftime("%I:%M %p") %>
+          <%= h.end.to_time_of_day.strftime("%I:%M %p") %>
+
+
+          do this in controller
+
+          <% @duration = (h.end - h.start)/100 %>
+          <% @start = (h.start.to_i - 946684800)/100%>
+
+
+        </div>
+
+        <div class="durationBox" style="width:<%= @duration.to_i %>px; margin-left:<%= @start.to_i %>px">
+        </div>
+
+      </div>
+
+
+      <% end %>
+
+    <% end %>
 </div>
-<% raise 'hell'%>

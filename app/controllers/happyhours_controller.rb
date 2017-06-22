@@ -25,6 +25,7 @@ class HappyhoursController < ApplicationController
 
   def index
     @happy = Happyhour.all
+    @venue = Venue.all
   end
 
   def destroy

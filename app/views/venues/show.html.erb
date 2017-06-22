@@ -25,7 +25,14 @@
       <% if @current_user != nil %>
         <% if @current_user.id == @venue.user_id %>
           <%= link_to 'Edit', edit_happyhour_path(hh.id) %></p>
-          <%= link_to 'Add Deal', new_deal_path(happyhour_id: hh.id) %>
+        <% end %>
+      <% end %>
+
+
+
+      <% if @current_user != nil %>
+        <% if @current_user.id == @venue.user_id %>
+          <p><%= link_to 'Add Happy Hour', new_happyhour_path(venue_id: @venue.id)  %></p>
         <% end %>
       <% end %>
     </td>
@@ -35,33 +42,28 @@
 
         <%= d.drink %> $<%= d.price %><br><%= d.description %>
 
-          <% if @current_user != nil %>
-            <% if @current_user.id == @venue.user_id %>
-              <%= link_to 'Edit', edit_deal_path(d.id) %> |
-            <% end %>
-          <% end %>
-
-          <% if @current_user != nil %>
-            <% if @current_user.id == @venue.user_id %>
-              <%= link_to 'Delete', edit_deal_path(d.id) %>
-            <% end %>
-          <% end %><br><br>
+    <% if @current_user != nil %>
+      <% if @current_user.id == @venue.user_id %>
+        <%= link_to 'Edit', edit_deal_path(d.id) %>
+      <% end %>
+    <% end %>
 
       <% end %>
+
+      <% if @current_user != nil %>
+        <% if @current_user.id == @venue.user_id %>
+          <br><br><%= link_to 'Add Deal', new_deal_path(happyhour_id: hh.id) %>
+        <% end %>
+      <% end %>
+
     </td>
   </tr>
   <% end %>
   </table>
 
-
-
   <br>
 
-    <% if @current_user != nil %>
-      <% if @current_user.id == @venue.user_id %>
-        <p><%= link_to 'Add Happy Hour', new_happyhour_path(venue_id: @venue.id)  %></p>
-      <% end %>
-    <% end %>
+
 
   <%= cl_image_tag @venue.image %>
 
