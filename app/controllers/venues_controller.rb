@@ -43,6 +43,11 @@ class VenuesController < ApplicationController
 
   def map
     @venues = Venue.all
+    @hash = Gmaps4rails.build_markers(@venues) do |venue, marker|
+      marker.lat venue.latitude
+      marker.lng venue.longitude
+      marker.infowindow venue.name
+    end
   end
 
   def destroy
@@ -53,7 +58,7 @@ class VenuesController < ApplicationController
 
   private
   def venue_params
-    params.require(:venue).permit(:name, :location, :category, :description, :image)
+    params.require(:venue).permit(:name, :location, :category, :description, :image, :latitude, :longitude, )
   end
 
   def fetch_user

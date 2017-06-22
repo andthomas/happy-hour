@@ -28,19 +28,12 @@
         <% end %>
       <% end %>
 
-
-
-      <% if @current_user != nil %>
-        <% if @current_user.id == @venue.user_id %>
-          <p><%= link_to 'Add Happy Hour', new_happyhour_path(venue_id: @venue.id)  %></p>
-        <% end %>
-      <% end %>
     </td>
 
     <td>
       <% hh.deals.each do |d| %>
 
-        <%= d.drink %> $<%= d.price %><br><%= d.description %>
+        <br><%= d.drink %> $<%= d.price %><br><%= d.description %>
 
     <% if @current_user != nil %>
       <% if @current_user.id == @venue.user_id %>
@@ -59,6 +52,20 @@
     </td>
   </tr>
   <% end %>
+  <tr>
+    <td>
+
+      <% if @current_user != nil %>
+        <% if @current_user.id == @venue.user_id %>
+          <p><%= link_to 'Add Happy Hour', new_happyhour_path(venue_id: @venue.id)  %></p>
+        <% end %>
+      <% end %>
+
+    </td>
+    <td>
+
+    </td>
+  </tr>
   </table>
 
   <br>

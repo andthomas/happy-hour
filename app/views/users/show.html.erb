@@ -21,7 +21,7 @@
     <% @user.venues.each do |v| %>
     <div class="col-xs-4">
       <div class="venueBox">
-        <img class="venuePic" src="<%= v.image %>" alt=""></img>
+        <%= cl_image_tag v.image, :class => "venuePic" %>
         <div class="venueContents">
           <p><%= link_to v.name, venue_path(v.id) %> | <%= v.category %></p>
         </div>
