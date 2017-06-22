@@ -44,9 +44,11 @@ class VenuesController < ApplicationController
   def map
     @venues = Venue.all
     @hash = Gmaps4rails.build_markers(@venues) do |venue, marker|
+      location_link = view_context.link_to venue.name, venue_path(venue.id)
       marker.lat venue.latitude
       marker.lng venue.longitude
-      marker.infowindow venue.name
+      marker.json({:id => venue.id })
+      marker.infowindow "<p><strong><u>#{location_link}</u></strong></p><p></p><p>#{venue.location}</p>"
     end
   end
 

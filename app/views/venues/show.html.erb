@@ -12,15 +12,15 @@
   <p><%= @venue.category %> | <%= @venue.location %></p>
   <p><%= @venue.description %></p>
 
-  <table>
+  <table class="table table-bordered">
   <tr>
-    <th>Day</th>
-    <th>Deal</th>
+    <th><h4><strong>Day</strong></h4></th>
+    <th><h4><strong>Deal</strong></h4></th>
   </tr>
   <% @venue.happyhours.each do |hh| %>
   <tr>
     <td>
-      <%= hh.day  %><br><%= hh.start.strftime("%I:%M %p")  %> to  <%= hh.end.strftime("%I:%M %p") %>
+      <strong><%= hh.day  %></strong><br><%= hh.start.strftime("%I:%M %p")  %> to  <%= hh.end.strftime("%I:%M %p") %>
 
       <% if @current_user != nil %>
         <% if @current_user.id == @venue.user_id %>
@@ -33,7 +33,7 @@
     <td>
       <% hh.deals.each do |d| %>
 
-        <br><%= d.drink %> $<%= d.price %><br><%= d.description %>
+        <strong><%= d.drink %> $<%= d.price %></strong><br><%= d.description %>
 
     <% if @current_user != nil %>
       <% if @current_user.id == @venue.user_id %>

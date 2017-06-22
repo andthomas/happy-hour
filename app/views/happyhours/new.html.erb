@@ -1,10 +1,11 @@
-<h1>Create a new happy hour</h1>
-<%= form_for @happy do |f| %>
+<div class="timeContainer">
+  <h1>Create a new happy hour</h1>
+  <%= form_for @happy do |f|%>
 
-<p>
-  <%= f.label :day %>
-  <%= f.text_field :day, required: true %>
-</p>
+  <p>
+    <%= f.label :day %>
+    <%= f.text_field :day, required: true %>
+  </p>
 
   <p>
     <%= f.label :start %>
@@ -16,11 +17,9 @@
     <%= f.time_field :end, required: true %>
   </p>
 
-
   <%= f.hidden_field :venue_id, :value => params[:venue_id] %>
-
-
 
   <%= f.submit %>
 
-<% end %>
+  <% end %>
+</div>

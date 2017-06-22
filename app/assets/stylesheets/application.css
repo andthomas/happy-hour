@@ -20,6 +20,7 @@ h1 {
 
 p {
   font-family: 'Raleway', sans-serif;
+  font-size: 15px;
 }
 
 #contentContainer {
@@ -38,7 +39,7 @@ nav {
 .logoContainer {
   text-decoration:none;
   font-family: 'Satisfy', cursive;
-  font-size: 50px;
+  font-size: 58px;
   display: inline;
   text-decoration: none;
   color: rgb(47, 47, 47);
@@ -84,7 +85,8 @@ td {
 }
 
 .timeContainer {
-  max-width: 800px
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .timeBox {
@@ -107,4 +109,8 @@ td {
 #map {
   width: 100%;
   height: 90vh;
+}
+
+.backImageContainer {
+  width: 100%;
 }
