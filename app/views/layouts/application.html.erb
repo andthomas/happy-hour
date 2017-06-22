@@ -41,7 +41,7 @@
 
   <div id="head">
     <div class="logoContainer"><%= link_to 'happy hour', venues_path %></div>
-    <br><p>See Venues | Map View | See Happy Hours</p>
+    <br><p><%= link_to "See Venues", venues_path() %> | Map View | See Happy Hours</p>
   </div>
 
     <%= yield %>
