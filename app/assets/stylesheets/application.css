@@ -4,7 +4,7 @@ body {
 }
 
 #head {
-  height: 14vh;
+  height: 17vh;
   background-color: rgb(250, 252, 252);
   border-bottom: 1px solid rgb(194, 194, 194);
   padding: 10px 0 10px 20px;
@@ -26,6 +26,8 @@ p {
 #contentContainer {
   margin: 0 auto;
   width: 800px;
+  background-color: rgba(255, 255, 255, 0.5);
+  position:relative;
 }
 
 #contentContainer img {
@@ -33,16 +35,20 @@ p {
 }
 nav {
   float: right;
-  padding: 33px 10px 0 0;
+  margin-top:12vh;
+  margin-right: 12px;
 }
 
 .logoContainer {
   text-decoration:none;
   font-family: 'Satisfy', cursive;
-  font-size: 58px;
+  font-size: 64px;
   display: inline;
-  text-decoration: none;
   color: rgb(47, 47, 47);
+}
+
+.logo {
+  text-decoration: none;
 }
 
 body {
@@ -109,8 +115,4 @@ td {
 #map {
   width: 100%;
   height: 90vh;
-}
-
-.backImageContainer {
-  width: 100%;
 }

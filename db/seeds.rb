@@ -27,18 +27,18 @@ v11 = Venue.create name: "Charlie Chans", location: "631-635 George St, Sydney",
 v12 = Venue.create name: "Pontoon Bar", location: "201 Sussex St, Sydney", category: "Bar", description: "The scene to be seen", image: "http://www.barsandnightclubs.com.au/assets/images/content/club/sydney/Rock%20Lily%20-%20Darling%20Harbour%20-%20Sydney_original.jpg", latitude: "33.8711966", longitude: "151.201997"
 v13 = Venue.create name: "Helm Bar", location: "7 Wheat Road, Sydney", category: "Pub", description: "The scene to be seen", image: "http://www.barsandnightclubs.com.au/assets/images/content/club/sydney//Helm%20Bar%20-%20Darling%20Harbour/Helm%20Bar%20-%20Darling%20Harbour%20-%20Sydney%20-%20Photo01.jpg", latitude: "33.8705", longitude: "151.2026"
 v14 = Venue.create name: "The Cidery", location: "389 Pitt St, Sydney", category: "Bar", description: "The scene to be seen", image: "http://theciderybar.sydney/wp-content/uploads/2015/07/12240406_10154224272011111_2537025979888006269_o-585x390.jpg", latitude: "33.8769", longitude: "151.2070"
-v15 = Venue.create name: "Frankies Pizza", location: "50 Hunter St, Sydney", category: "Pub", description: "The scene to be seen", image: "https://www.broadsheet.com.au/media/cache/4c/8e/4c8e3aa44d19f14d80c6ecb1fdeef95f.jpg", latitude: "33.8659", longitude: "151.2095"
+v15 = Venue.create name: "Frankies Pizza", location: "50 Hunter St, Sydney", category: "Pub", description: "The heart of the business district is not where youd expect to find an underground heavy metal pizza party, but Frankies Pizza by the Slice doesnt much go in for the expected. The front room feels like a pizza parlour from a movie set, but it’s more Ninja Turtles than Sopranos. There are postcards and old photos tacked to the walls; red and white tablecloths and candles in bottles; and they sure can bake the heck out of a pepperoni pizza. Theyll also sell you a slice of whatever is hot for $6 – a night here is one you should prime for. Through the looking glass, or rather through the saloon doors, is Frankie’s dark side – no trace of the good Italian boy making red sauce just like nonna used to.", image: "https://www.broadsheet.com.au/media/cache/4c/8e/4c8e3aa44d19f14d80c6ecb1fdeef95f.jpg", latitude: "33.8659", longitude: "151.2095"
 
 
 
 
 
 Happyhour.destroy_all
-h1 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Thursday"
-h2 = Happyhour.create start: Time.new(2017,6,20,17,10,0), end: Time.new(2017,6,20,18,10,0), day: "Thursday"
-h3 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0), day: "Thursday"
-h4 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0), day: "Monday"
-h5 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Tuesday"
+h1 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Monday"
+h2 = Happyhour.create start: Time.new(2017,6,20,17,10,0), end: Time.new(2017,6,20,18,10,0), day: "Tuesday"
+h3 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0), day: "Wednesday"
+h4 = Happyhour.create start: Time.new(2017,6,21,17,10,0), end: Time.new(2017,06,21,18,10,0), day: "Thursday"
+h5 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Friday"
 h6 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Wednesday"
 h7 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Thursday"
 h8 = Happyhour.create start: Time.new(2017,6,19,5,10,0), end: Time.new(2017,6,19,7,10,0), day: "Friday"
@@ -64,7 +64,7 @@ v5.happyhours << h7
 v6.happyhours << h8
 v7.happyhours << h4
 v8.happyhours << h4
-v9.happyhours << h4
+v15.happyhours << h1 << h2 << h3 << h4 << h5
 
 
 

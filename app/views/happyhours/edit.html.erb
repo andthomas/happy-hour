@@ -1,3 +1,4 @@
+<div class="timeContainer">
 <h1>Happyhours Edit</h1>
 
 <%= form_for @happy do |f| %>
@@ -17,10 +18,9 @@
     <%= f.time_field :end, required: true %>
   </p>
 
-
-
-
-
   <%= f.submit %>
 
 <% end %>
+
+<p><%= link_to 'Delete', @happy, method: :delete, :data => {:confirm => "Are you sure?"} %></p>
+</div>

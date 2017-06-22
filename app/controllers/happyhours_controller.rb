@@ -29,6 +29,9 @@ class HappyhoursController < ApplicationController
   end
 
   def destroy
+    happy = Happyhour.find params[:id]
+    happy.destroy
+    redirect_to venue_path(happy.venue.id)
   end
 
   private
