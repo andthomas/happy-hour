@@ -28,20 +28,25 @@
 
 </head>
 
-<nav>
-  <p><% unless @current_user.present? %>
-    <%= link_to 'Login', login_path %> | <%= link_to 'Signup', new_user_path %>
-  <% else %>
-  <%= link_to @current_user.name, user_path(@current_user) %> |
-    <%= link_to 'Logout', login_path, method: :delete %>
-  <% end %></p>
-</nav>
 
   <body>
 
   <div id="head">
     <div class="logoContainer"><%= link_to 'happy hour', venues_path, :class => "logo" %></div>
-    <br><p><%= link_to "Venue Listing", venues_path() %> | <%= link_to "Happy Hours", happyhours_path %> | <%= link_to "Map View", root_path %></p>
+    <br>
+    <p>
+      <%= link_to "Venue Listing", venues_path() %> | <%= link_to "Happy Hours", happyhours_path %> | <%= link_to "Map View", root_path %>
+    <p class="login">
+      <% unless @current_user.present? %>
+        <%= link_to 'Login', login_path %> | <%= link_to 'Signup', new_user_path %>
+      <% else %>
+      <%= link_to @current_user.name, user_path(@current_user) %> |
+        <%= link_to 'Logout', login_path, method: :delete %>
+      <% end %>
+    </p>
+    </p>
+
+
   </div>
 
     <%= yield %>

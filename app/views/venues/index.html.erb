@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" style="padding-top:160px">
 
     <% @venues.each do |v| %>
-    <div class="col-xs-4" style="padding-top:10px">
+    <div class="col-xs-4">
       <div class="venueBox">
         <%= cl_image_tag v.image, :class => "venuePic" %>
         <div class="venueContents">
